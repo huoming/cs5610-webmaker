@@ -3,7 +3,7 @@ webpackJsonp(["styles"],{
 /***/ "./node_modules/raw-loader/index.js!./node_modules/postcss-loader/lib/index.js??embedded!./src/styles.css":
 /***/ (function(module, exports) {
 
-module.exports = "/* You can add global styles to this file, and also import other style files */\n"
+module.exports = "/* You can add global styles to this file, and also import other style files */\n/*\np{\n  background-color: deepskyblue;\n  width: 500px;\n  height: 100px;\n  overflow: hidden;\n  }\n\n#blue_color{\n  background-color: deepskyblue;\n}\n\n.green_color{\n  background-color: greenyellow;\n}\n*/\n"
 
 /***/ }),
 
