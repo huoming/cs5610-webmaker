@@ -1,27 +1,65 @@
-<h1>Profile</h1>
+<!--<h1>Profile</h1>
 
-<p>Profile works</p>
-
-<!--
-<h2> user: {{user.username}} </h2>
-
-{{user._id}}
-
-<a routerLink="/profile/{{user._id}}/website">Websites</a>
-<br/>
-
-<input [(ngModel)]="user.username"/>
-<br/>
-
-<input [(ngModel)]="user.password" type="password"/>
-<br/>
+<p>Profile works</p>-->
 
 
+<nav class="navbar bg-primary navbar-fixed-top">
+  <div class="container-fluid ">
 
-<input [(ngModel)]="user.firstName"/>
-<br/>
+    <a class="navbar-brand cl-text-white" routerLink="">Profile</a>
+    <a (click)="UpdateUser()" class="btn-primary navbar-text pull-right"><span class="glyphicon glyphicon-ok cl-text-white"></span></a>
 
-<input [(ngModel)]="user.lastName"/>
-<br/>
+  </div>
+</nav>
 
-<button (click)="updateUser(user)">Update</button>-->
+
+<div class="container">
+  <h1>Profile</h1>
+
+    <div class="form-group">
+      <label for="username">Username</label>
+      <input [(ngModel)]="user.username" type="text" class="form-control" id="username" placeholder="Username">
+    </div>
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input [(ngModel)]="user.email" type="email" class="form-control" id="email" placeholder="alice@wonderland.com">
+    </div>
+    <div class="form-group">
+      <label for="first-name">First Name</label>
+      <input [(ngModel)]="user.firstName" type="text" class="form-control" id="first-name" placeholder="Alice">
+    </div>
+    <div class="form-group">
+      <label for="last-name">Last Name</label>
+      <input [(ngModel)]="user.lastName" type="text" class="form-control" id="last-name" placeholder="Wonderland">
+    </div>
+
+  <a class="btn btn-primary btn-block" routerLink="/user/111/website">Websites</a>
+  <a class="btn btn-danger  btn-block" routerLink="/login">Logout</a>
+</div>
+
+<nav class="navbar navbar-default navbar-fixed-bottom">
+  <div class="container">
+    <div class="row navbar-text">
+      <div class="col-xs-3 text-center">
+        <a href="#">
+          <span class="glyphicon glyphicon-ok"></span>
+        </a>
+      </div>
+      <div class="col-xs-3 text-center">
+        <a href="#">
+          <span class="glyphicon glyphicon-plus"></span>
+        </a>
+      </div>
+      <div class="col-xs-3 text-center">
+        <a href="#">
+          <span class="glyphicon glyphicon-star"></span>
+        </a>
+      </div>
+      <div class="col-xs-3 text-center">
+        <a href="#">
+          <span class="glyphicon glyphicon-heart"></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
