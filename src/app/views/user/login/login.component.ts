@@ -4,6 +4,10 @@ import { Router} from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { ViewChild } from '@angular/core';
 
+
+import {UserService} from '../../../services/user.service';
+import {User} from '../../../models/user.model.client';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -19,7 +23,7 @@ export class LoginComponent implements OnInit {
   errorFlag: boolean;
   errorMsg = 'Invalid username or password !';
 
-  constructor(private router: Router) { this.errorFlag=false;}
+  constructor(private userService: UserService, private router: Router) { this.errorFlag=false;}
 
   login () {
 
@@ -29,12 +33,17 @@ export class LoginComponent implements OnInit {
     console.log(this.username);
     console.log(this.password);
 
-    if(this.password !== 'alice')
+    /*if(this.password !== 'alice')
     {
       this.errorFlag=true;
     }
     else {
       this.router.navigate(['/user', '111']);
+    }*/
+
+    const user: User = this.userService.findUserByCredential(this.username, this.password);
+    if (user) {
+      this.router.navigate(['/user', user._id]);
     }
   }
 

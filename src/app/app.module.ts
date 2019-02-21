@@ -14,6 +14,9 @@ import { WebsiteNewComponent } from './views/website/website-new/website-new.com
 import { WebsiteEditComponent } from './views/website/website-edit/website-edit.component';
 import { PageListComponent } from './views/page/page-list/page-list.component';
 
+// client services
+import {UserService} from './services/user.service';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +34,7 @@ import { PageListComponent } from './views/page/page-list/page-list.component';
     FormsModule,
     routing
   ],
-  providers: [],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
