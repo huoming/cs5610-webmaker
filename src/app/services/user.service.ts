@@ -1,16 +1,28 @@
 import { Injectable } from '@angular/core';
+import {Observable} from 'rxjs/Observable';
+import {HttpClient} from '@angular/common/http';
+
+import 'rxjs/add/observable/of';
+import 'rxjs/add/operator/map';
+
+//import * as _ from 'lodash';
+
+
 import { User } from '../models/user.model.client';
+
+
 
 @Injectable()
 export class UserService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   users: User[] = [
     new User('123', 'alice', 'qq', 'alice', 'alice', 'a@a.com'),
     new User('234', 'bob', 'qq', 'bob', 'bob', 'b@b.com'),
     new User('345', 'charlie', 'qq', 'charlie','charlie','c@c.com')
   ];
+
 
   createUser(user: User) {
     this.users.push(new User(user._id, user.username, user.password, user.firstName, user.lastName, user.email));
@@ -22,11 +34,19 @@ export class UserService {
     });
   }
 
-  findUserById(userId: String) {
+/*  findUserById(userId: String) {
     return this.users.find(function(user){
       return user._id === userId;
     });
+  }*/
+
+  findUserById(userId: String) {
+
+    console.log('http://localhost:3200/api/user/' + userId );
+    return this.http.get<User>('http://localhost:3200/api/user/' + userId);
   }
+
+
 
   updateUser(user: User) {
     for (let i = 0; i < this.users.length; i++) {

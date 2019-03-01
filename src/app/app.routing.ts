@@ -10,6 +10,7 @@ import {PageListComponent} from './views/page/page-list/page-list.component';
 
 
 const appRoutes: Routes = [​
+  { path: '', component: LoginComponent},
   { path: 'login', component: LoginComponent},
   { path: 'user/:uid' , component: ProfileComponent},​
   { path: 'register', component: RegisterComponent},

@@ -33,7 +33,8 @@
       <input [(ngModel)]="user.lastName" type="text" class="form-control" id="last-name" placeholder="Wonderland">
     </div>
 
-  <a class="btn btn-primary btn-block" routerLink="/user/111/website">Websites</a>
+  <!--<a class="btn btn-primary btn-block" routerLink="/user/111/website">Websites</a>-->
+  <a class="btn btn-primary btn-block" (click)="Websites()">Websites</a>
   <a class="btn btn-danger  btn-block" routerLink="/login">Logout</a>
 </div>
 

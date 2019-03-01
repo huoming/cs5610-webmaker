@@ -1,29 +1,11 @@
 
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import { Router} from '@angular/router';
 
 import {UserService} from '../../../services/user.service';
 import {User} from '../../../models/user.model.client';
 
-/*export class User {
-  _id: String;
-  username: String;
-  password: String;
-
-  firstName: String;
-  lastName: String;
-  email: String;
-
-  constructor(_id, username, password, firstName, lastName, email) {
-    this._id = _id;
-    this.username = username;
-    this.password = password;
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.email = email;
-  }
-
-}*/
 
 @Component({
   selector: 'app-profile',
@@ -33,28 +15,40 @@ import {User} from '../../../models/user.model.client';
 export class ProfileComponent implements OnInit {
 
   user: User;
+  url: String;
 
   constructor(
     private userService: UserService,
-    private router: ActivatedRoute) {
+    private router: Router,
+    private acRouter: ActivatedRoute) {
       this.user = new User('111', 'alice', 'alice', 'alice', 'alice', 'alice@alice');
   }
 
   UpdateUser() {
-    console.log(this.user.username);
+    /*console.log(this.user.username);
     console.log(this.user.firstName);
-    console.log(this.user.lastName);
+    console.log(this.user.lastName);*/
 
     this.userService.updateUser(this.user);
   }
 
+
   ngOnInit() {
-    this.router.params.subscribe(params => {
+    //testing api call -- remove me when done
+    this.userService.findUserById('123')
+      .subscribe(data => {
+        console.log('in login comp...');
+        console.log(data);
+        this.user = data;
+      });
+
+    this.acRouter.params.subscribe(params => {
       this.user._id = params['uid'];
       console.log('user id: ' + this.user._id);
     });
 
-    this.user = this.userService.findUserById(this.user._id);
+
+    //this.userService.findUserById(this.user._id);
   }
 }
 
