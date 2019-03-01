@@ -11,4 +11,11 @@ export class AppComponent {
 
   // testing first directive
   color = 'yellow';
+
+
+  reorderItems(indexes) {
+    console.log("start: " + indexes.startIndex);
+    console.log("stop: " + indexes.endIndex);
+  }
+
 }

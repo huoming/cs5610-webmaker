@@ -25,27 +25,25 @@ export class ProfileComponent implements OnInit {
   }
 
   UpdateUser() {
-    /*console.log(this.user.username);
-    console.log(this.user.firstName);
-    console.log(this.user.lastName);*/
-
     this.userService.updateUser(this.user);
   }
 
 
   ngOnInit() {
+
+    this.acRouter.params.subscribe(params => {
+      this.user._id = params['uid'];
+      console.log('user id: ' + this.user._id);
+    });
+
     //testing api call -- remove me when done
-    this.userService.findUserById('123')
+    this.userService.findUserById(this.user._id)
       .subscribe(data => {
         console.log('in login comp...');
         console.log(data);
         this.user = data;
       });
 
-    this.acRouter.params.subscribe(params => {
-      this.user._id = params['uid'];
-      console.log('user id: ' + this.user._id);
-    });
 
 
     //this.userService.findUserById(this.user._id);

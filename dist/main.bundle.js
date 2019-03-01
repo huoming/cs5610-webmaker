@@ -27,7 +27,7 @@ module.exports = ""
 /***/ "./src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n\n<ul id=\"sortable\">\n  <li>One</li>\n  <li>Two</li>\n  <li>Three</li>\n  <li>Four</li>\n  <li>Five</li>\n</ul>\n\n<!--<p appHelloWorld>Hello World</p>-->\n\n<p appChangeBgColor [changeBgColor]=\"color\">Hello world</p>\n\n<p appHelloworld [bgColor]=\"color\">Hello World</p>\n\n\n\n<router-outlet>\n  <div class=\"container\">\n\n    <ul><a routerLink=\"/login\">                login               </a></ul>\n    <ul><a routerLink=\"/register\">             register             </a></ul>\n\n    <ul><a routerLink=\"/user/111/website\">          WebSiteList               </a></ul>\n    <ul><a routerLink=\"/user/111/website/new\">          WebsiteNewComponent               </a></ul>\n    <ul><a routerLink=\"/user/111/website/111\">          WebsiteComponentWithId              </a></ul>\n    <ul><a routerLink=\"/user/111/website/111/edit\">          WebSiteEdit               </a></ul>\n\n    <ul><a routerLink=\"/user/111/website/111/page\">          PageListComponent               </a></ul>\n    <ul><a routerLink=\"/user/111/website/111/page/new\">          PageNewComponent               </a></ul>\n    <ul><a routerLink=\"/user/111/website/111/page/100\">          PageEditComponent               </a></ul>\n\n    <ul><a routerLink=\"/user/111/website/111/page/100/widget\">          WidgetListComponent               </a></ul>\n    <ul><a routerLink=\"/user/111/website/111/page/100/widget/new\">          WidgetChooserComponent               </a></ul>\n    <ul><a routerLink=\"/user/111/website/111/page/100/widget/123\">          WidgetEditComponentWithId              </a></ul>\n\n  </div>\n</router-outlet>\n"
+module.exports = "\n\n<ul appSortable (newIndexes)=\"reorderItems($event)\">\n  <li>One</li>\n  <li>Two</li>\n  <li>Three</li>\n  <li>Four</li>\n  <li>Five</li>\n</ul>\n\n<!--<p appHelloWorld>Hello World</p>-->\n\n<p appChangeBgColor [changeBgColor]=\"color\">Hello world</p>\n\n<p appHelloworld [bgColor]=\"color\">Hello World</p>\n\n\n\n<router-outlet>\n  <div class=\"container\">\n\n    <ul><a routerLink=\"/login\">                login               </a></ul>\n    <ul><a routerLink=\"/register\">             register             </a></ul>\n\n    <ul><a routerLink=\"/user/111/website\">          WebSiteList               </a></ul>\n    <ul><a routerLink=\"/user/111/website/new\">          WebsiteNewComponent               </a></ul>\n    <ul><a routerLink=\"/user/111/website/111\">          WebsiteComponentWithId              </a></ul>\n    <ul><a routerLink=\"/user/111/website/111/edit\">          WebSiteEdit               </a></ul>\n\n    <ul><a routerLink=\"/user/111/website/111/page\">          PageListComponent               </a></ul>\n    <ul><a routerLink=\"/user/111/website/111/page/new\">          PageNewComponent               </a></ul>\n    <ul><a routerLink=\"/user/111/website/111/page/100\">          PageEditComponent               </a></ul>\n\n    <ul><a routerLink=\"/user/111/website/111/page/100/widget\">          WidgetListComponent               </a></ul>\n    <ul><a routerLink=\"/user/111/website/111/page/100/widget/new\">          WidgetChooserComponent               </a></ul>\n    <ul><a routerLink=\"/user/111/website/111/page/100/widget/123\">          WidgetEditComponentWithId              </a></ul>\n\n  </div>\n</router-outlet>\n"
 
 /***/ }),
 
@@ -50,6 +50,10 @@ var AppComponent = /** @class */ (function () {
         // testing first directive
         this.color = 'yellow';
     }
+    AppComponent.prototype.reorderItems = function (indexes) {
+        console.log("start: " + indexes.startIndex);
+        console.log("stop: " + indexes.endIndex);
+    };
     AppComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-root',
@@ -302,13 +306,39 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 var SortableDirective = /** @class */ (function () {
-    function SortableDirective() {
+    function SortableDirective(el) {
+        this.el = el;
+        //this will emit an event for the parent component or the directive calling component
+        this.newIndexs = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* EventEmitter */]();
     }
+    SortableDirective.prototype.ngAfterViewInit = function () {
+        this.appSortable(this);
+    };
+    SortableDirective.prototype.appSortable = function (refe) {
+        jQuery(this.el.nativeElement).sortable({
+            axis: 'y',
+            start: function (event, ui) {
+                console.log('Old position: ' + ui.item.index());
+                refe.initialIndex = ui.item.index();
+            },
+            stop: function (event, ui) {
+                console.log('New position: ' + ui.item.index());
+                refe.newIndexes.emit({
+                    startIndex: refe.initialIndex,
+                    endIndex: ui.item.index()
+                });
+            }
+        });
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["P" /* Output */])(),
+        __metadata("design:type", Object)
+    ], SortableDirective.prototype, "newIndexs", void 0);
     SortableDirective = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["s" /* Directive */])({
             selector: '[appSortable]'
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */]])
     ], SortableDirective);
     return SortableDirective;
 }());
@@ -370,6 +400,7 @@ var Website = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_observable_of__ = __webpack_require__("./node_modules/rxjs/_esm5/add/observable/of.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__("./node_modules/rxjs/_esm5/add/operator/map.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_user_model_client__ = __webpack_require__("./src/app/models/user.model.client.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__environments_environment__ = __webpack_require__("./src/environments/environment.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -383,6 +414,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+//import * as _ from 'lodash';
+
 
 var UserService = /** @class */ (function () {
     function UserService(http) {
@@ -392,6 +425,7 @@ var UserService = /** @class */ (function () {
             new __WEBPACK_IMPORTED_MODULE_4__models_user_model_client__["a" /* User */]('234', 'bob', 'qq', 'bob', 'bob', 'b@b.com'),
             new __WEBPACK_IMPORTED_MODULE_4__models_user_model_client__["a" /* User */]('345', 'charlie', 'qq', 'charlie', 'charlie', 'c@c.com')
         ];
+        this.baseUrl = __WEBPACK_IMPORTED_MODULE_5__environments_environment__["a" /* environment */].baseUrl;
     }
     UserService.prototype.createUser = function (user) {
         this.users.push(new __WEBPACK_IMPORTED_MODULE_4__models_user_model_client__["a" /* User */](user._id, user.username, user.password, user.firstName, user.lastName, user.email));
@@ -407,20 +441,8 @@ var UserService = /** @class */ (function () {
         });
       }*/
     UserService.prototype.findUserById = function (userId) {
-        console.log('http://localhost:3200/api/user/' + userId);
-        /*this.http.get<User>('http://localhost:3200/api/user/' + userId )
-          .subscribe(data => {
-            console.log(data);
-          });
-    
-        return this.usersO$;*/
-        /*this.http.get('http://localhost:3200/api/user/' + userId )
-          .subscribe(data => {
-            console.log('in subcribe...');
-            console.log(data);
-            return data;
-          });*/
-        return this.http.get('http://localhost:3200/api/user/' + userId);
+        console.log(this.baseUrl + userId);
+        return this.http.get(this.baseUrl + userId);
     };
     UserService.prototype.updateUser = function (user) {
         for (var i = 0; i < this.users.length; i++) {
@@ -665,23 +687,20 @@ var ProfileComponent = /** @class */ (function () {
         this.user = new __WEBPACK_IMPORTED_MODULE_3__models_user_model_client__["a" /* User */]('111', 'alice', 'alice', 'alice', 'alice', 'alice@alice');
     }
     ProfileComponent.prototype.UpdateUser = function () {
-        /*console.log(this.user.username);
-        console.log(this.user.firstName);
-        console.log(this.user.lastName);*/
         this.userService.updateUser(this.user);
     };
     ProfileComponent.prototype.ngOnInit = function () {
         var _this = this;
+        this.acRouter.params.subscribe(function (params) {
+            _this.user._id = params['uid'];
+            console.log('user id: ' + _this.user._id);
+        });
         //testing api call -- remove me when done
-        this.userService.findUserById('123')
+        this.userService.findUserById(this.user._id)
             .subscribe(function (data) {
             console.log('in login comp...');
             console.log(data);
             _this.user = data;
-        });
-        this.acRouter.params.subscribe(function (params) {
-            _this.user._id = params['uid'];
-            console.log('user id: ' + _this.user._id);
         });
         //this.userService.findUserById(this.user._id);
     };
@@ -957,12 +976,9 @@ var WidgetHeaderComponent = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return environment; });
-// The file contents for the current environment will overwrite these during build.
-// The build system defaults to the dev environment which uses `environment.ts`, but if you do
-// `ng build --env=prod` then `environment.prod.ts` will be used instead.
-// The list of which env maps to which file can be found in `.angular-cli.json`.
 var environment = {
-    production: false
+    production: true,
+    baseUrl: "https://webdev-ming-cs5610.herokuapp.com/"
 };
 
 

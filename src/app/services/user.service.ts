@@ -10,6 +10,7 @@ import 'rxjs/add/operator/map';
 
 import { User } from '../models/user.model.client';
 
+import {environment} from '../../environments/environment';
 
 
 @Injectable()
@@ -23,6 +24,7 @@ export class UserService {
     new User('345', 'charlie', 'qq', 'charlie','charlie','c@c.com')
   ];
 
+  baseUrl = environment.baseUrl;
 
   createUser(user: User) {
     this.users.push(new User(user._id, user.username, user.password, user.firstName, user.lastName, user.email));
@@ -42,8 +44,8 @@ export class UserService {
 
   findUserById(userId: String) {
 
-    console.log('http://localhost:3200/api/user/' + userId );
-    return this.http.get<User>('http://localhost:3200/api/user/' + userId);
+    console.log(this.baseUrl + 'user'+ userId );
+    return this.http.get<User>(this.baseUrl +'api/user/'+ userId);
   }
 
 
