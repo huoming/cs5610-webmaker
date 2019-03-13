@@ -1,11 +1,8 @@
-
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
-import { Router} from '@angular/router';
-
-import {UserService} from '../../../services/user.service';
-import {User} from '../../../models/user.model.client';
-
+import 'rxjs/Rx';
+import {UserService} from "../../../services/user.service";
+import {Router} from "@angular/router";
+import {SharedService} from "../../../services/shared.service";
 
 @Component({
   selector: 'app-profile',
@@ -14,39 +11,76 @@ import {User} from '../../../models/user.model.client';
 })
 export class ProfileComponent implements OnInit {
 
-  user: User;
-  url: String;
+  //properties
+  username : String;
+  firstName : String;
+  lastName : String;
+  email : String;
+  user = {};
+  userId : String;
+  errorFlag : boolean;
+  errorMsg = 'Invalid username or password !';
 
-  constructor(
-    private userService: UserService,
-    private router: Router,
-    private acRouter: ActivatedRoute) {
-      this.user = new User('111', 'alice', 'alice', 'alice', 'alice', 'alice@alice');
-  }
 
-  UpdateUser() {
-    this.userService.updateUser(this.user);
-  }
-
+  constructor(private _UserService: UserService, private router: Router, private sharedService: SharedService) { }
 
   ngOnInit() {
 
-    this.acRouter.params.subscribe(params => {
-      this.user._id = params['uid'];
-      console.log('user id: ' + this.user._id);
-    });
+    this.getUser();
 
-    //testing api call -- remove me when done
-    this.userService.findUserById(this.user._id)
-      .subscribe(data => {
-        console.log('in login comp...');
-        console.log(data);
-        this.user = data;
-      });
-
-
-
-    //this.userService.findUserById(this.user._id);
   }
-}
 
+  logout() {
+    this._UserService.logout()
+      .subscribe(
+        (data: any) => this.router.navigate(['/login'])
+      );
+  }
+
+  getUser() {
+    this.user = this.sharedService.user;
+    this.username = this.user['username'];
+    this.firstName = this.user['firstName'];
+    this.lastName = this.user['lastName'];
+    this.email = this.user['email'];
+    this.userId = this.user['_id'];
+  }
+
+
+  updateUser() {
+    let updatedUser = {
+      _id : this.user['_id'],
+      username : this.username,
+      firstName :this.firstName,
+      lastName :  this.lastName,
+      email : this.email
+
+    };
+
+
+    this._UserService.updateUser(updatedUser)
+      .subscribe(
+        (data: any) => {
+          this._UserService.findUserById(updatedUser._id)
+            .subscribe(
+              (data: any) => {
+                localStorage.setItem('user', JSON.stringify(data));
+                this.ngOnInit();
+              }
+            )
+        },
+        (error: any) => this.errorFlag = true
+      );
+    // .toPromise()
+    // .then( data => {
+    //   this._UserService.findUserById(updatedUser._id)
+    //     .toPromise()
+    //     .then( data => {
+    //       localStorage.setItem('user', JSON.stringify(data));
+    //
+    //       this.ngOnInit();
+    //     })
+    // })
+  }
+
+}

@@ -1,22 +1,85 @@
-import { Injectable } from '@angular/core';
 
-import {Website} from '../models/website.model.client';
+import {Injectable} from "@angular/core";
+import {Http, Response} from "@angular/http";
+import 'rxjs/Rx';
+import {environment} from "../../environments/environment";
 
+// injecting service into module
 @Injectable()
-export class WebsiteService {
 
-  constructor() { }
+export class WebsiteService{
 
-  websites: Website[] = [
-    new Website("123","Facebook", "456", "facebook user 456")
-  ];
+  baseUrl = environment.baseUrl;
 
-  createWebsite(userId: String, website: Website){
-    website.developerId = userId;
-    this.websites.push(website);
-  }
-
-  findWebsitesByUser(userId) {
+  constructor(private _http : Http){
 
   }
+
+
+
+
+
+  findWebsiteById(websiteId : String){
+    return this._http.get(this.baseUrl+ '/api/website/'+websiteId)
+      .map(
+        (res: Response) => {
+          const data = res.json();
+          return data;
+        }
+      );
+  }
+
+
+  findWebsitesByUser(userId : String){
+    return this._http.get(this.baseUrl+ '/api/user/'+userId+'/website')
+      .map(
+        (res: Response) => {
+          const data = res.json();
+
+          return data;
+        }
+      );
+  }
+
+  createWebsite(userId, website){
+    var body = {
+      name : website.name,
+      description : website.description,
+      developerId : userId
+    };
+    var url = this.baseUrl+ '/api/user/'+userId+'/website';
+    return this._http.post(url, body)
+      .map(
+        (res: Response) => {
+          const data = res.json();
+
+          return data;
+        }
+      );
+
+  }
+
+  updateWebsite(websiteId, website){
+    var url = this.baseUrl + '/api/website/' + websiteId;
+    var body = website;
+    return this._http.put(url, body)
+      .map(
+        (res: Response) => {
+          const data = res;
+          return data;
+        }
+      );
+  }
+
+  deleteWebsite(websiteId){
+    var url = this.baseUrl + '/api/website/' + websiteId;
+    return this._http.delete(url)
+      .map(
+        (res: Response) => {
+          const data = res;
+          return data;
+        }
+      );
+  }
+
 }
