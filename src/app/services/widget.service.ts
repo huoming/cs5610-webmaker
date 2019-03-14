@@ -3,6 +3,7 @@ import {Injectable} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {environment} from '../../environments/environment';
 import 'rxjs/Rx';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 
@@ -10,9 +11,10 @@ export class WidgetService{
 
   baseUrl = environment.baseUrl;
 
-  constructor(private _http: Http) {}
+  //constructor(private _http: Http) {}
+  constructor(private _http: HttpClient) {}
 
-  createWidget(pageId, widget){
+  /*createWidget(pageId, widget){
     const url = this.baseUrl+'/api/page/'+pageId+'/widget';
     return this._http.post(url, widget)
       .map(
@@ -20,9 +22,14 @@ export class WidgetService{
           const data = res.json();
           return data;
         });
+  }*/
+
+  createWidget(pageId, widget){
+    const url = this.baseUrl+'/api/page/'+pageId+'/widget';
+    return this._http.post(url, widget);
   }
 
-  findWidgetsByPageId(pageId) {
+  /*findWidgetsByPageId(pageId) {
     const url = this.baseUrl+'/api/page/'+pageId+'/widget';
     return this._http.get(url)
       .map(
@@ -31,9 +38,14 @@ export class WidgetService{
           return data;
         }
       );
+  }*/
+
+  findWidgetsByPageId(pageId) {
+    const url = this.baseUrl+'/api/page/'+pageId+'/widget';
+    return this._http.get(url);
   }
 
-  findWidgetById(widgetId) {
+  /*findWidgetById(widgetId) {
     const url = this.baseUrl+'/api/widget/'+widgetId;
     return this._http.get(url)
       .map(
@@ -42,9 +54,14 @@ export class WidgetService{
           return data;
         }
       );
+  }*/
+
+  findWidgetById(widgetId) {
+    const url = this.baseUrl+'/api/widget/'+widgetId;
+    return this._http.get(url);
   }
 
-  updateWidget(widgetId, widget) {
+  /*updateWidget(widgetId, widget) {
     const url = this.baseUrl+'/api/widget/'+widgetId;
     return this._http.put(url, widget)
       .map(
@@ -53,9 +70,14 @@ export class WidgetService{
           return data;
         }
       );
+  }*/
+
+  updateWidget(widgetId, widget) {
+    const url = this.baseUrl+'/api/widget/'+widgetId;
+    return this._http.put(url, widget);
   }
 
-  deleteWidget(widgetId) {
+  /*deleteWidget(widgetId) {
     const url = this.baseUrl+'/api/widget/'+widgetId;
     return this._http.delete(url)
       .map(
@@ -64,18 +86,23 @@ export class WidgetService{
           return data;
         }
       );
+  }*/
+
+
+  deleteWidget(widgetId) {
+    const url = this.baseUrl+'/api/widget/'+widgetId;
+    return this._http.delete(url);
   }
+
+  /*reorderWidgets(startIndex, endIndex, pageId) {
+
+    const url = this.baseUrl + '/api/page/' + pageId + '/widget?start=' + startIndex + '&end=' + endIndex;
+    return this._http.put(url, '');
+  }*/
 
   reorderWidgets(startIndex, endIndex, pageId) {
 
     const url = this.baseUrl + '/api/page/' + pageId + '/widget?start=' + startIndex + '&end=' + endIndex;
-    return this._http.put(url, '')
-      .map(
-        (res: Response) => {
-          const data = res;
-          return data;
-        }
-      );
+    return this._http.put(url, '');
   }
-
 }

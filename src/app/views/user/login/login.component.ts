@@ -5,6 +5,8 @@ import 'rxjs/Rx';
 import {NgForm} from "@angular/forms";
 import {SharedService} from "../../../services/shared.service";
 
+import { User } from '../../../models/user.model.client';
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -20,8 +22,6 @@ export class LoginComponent implements OnInit {
   errorFlag: boolean;
   errorMsg = 'Invalid username or password !';
 
-  // TODO : fix authentication using pasport
-
   constructor(private router: Router, private _userService: UserService, private sharedService: SharedService){ }
 
   ngOnInit() {}
@@ -32,8 +32,19 @@ export class LoginComponent implements OnInit {
     this.username = this.loginForm.value.username;
     this.password = this.loginForm.value.password;
 
+    this._userService.findUserByCredential(this.username, this.password)
+      .subscribe((user: User) => {
+          if (user) {
+            console.log(user);
+            this.router.navigate(['/user', user._id]);
+          } else {
+            this.errorFlag = true;
+          }
+        }
+      );
+  }
     // calling client side userservice to send login information
-    console.log('data', this.username);
+    /*console.log('data', this.username);
     this._userService.login(this.username, this.password)
       .subscribe(
         (data: any) => {
@@ -43,6 +54,5 @@ export class LoginComponent implements OnInit {
         (error: any) => {
           this.errorFlag = true;
         }
-      );
-  }
+      );*/
 }

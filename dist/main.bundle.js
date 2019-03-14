@@ -27,7 +27,7 @@ module.exports = ""
 /***/ "./src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n\n<ul appSortable (newIndexes)=\"reorderItems($event)\">\n  <li>One</li>\n  <li>Two</li>\n  <li>Three</li>\n  <li>Four</li>\n  <li>Five</li>\n</ul>\n\n<!--<p appHelloWorld>Hello World</p>-->\n\n<p appChangeBgColor [changeBgColor]=\"color\">Hello world</p>\n\n<p appHelloworld [bgColor]=\"color\">Hello World</p>\n\n\n\n<router-outlet>\n  <div class=\"container\">\n\n    <ul><a routerLink=\"/login\">                login               </a></ul>\n    <ul><a routerLink=\"/register\">             register             </a></ul>\n\n    <ul><a routerLink=\"/user/111/website\">          WebSiteList               </a></ul>\n    <ul><a routerLink=\"/user/111/website/new\">          WebsiteNewComponent               </a></ul>\n    <ul><a routerLink=\"/user/111/website/111\">          WebsiteComponentWithId              </a></ul>\n    <ul><a routerLink=\"/user/111/website/111/edit\">          WebSiteEdit               </a></ul>\n\n    <ul><a routerLink=\"/user/111/website/111/page\">          PageListComponent               </a></ul>\n    <ul><a routerLink=\"/user/111/website/111/page/new\">          PageNewComponent               </a></ul>\n    <ul><a routerLink=\"/user/111/website/111/page/100\">          PageEditComponent               </a></ul>\n\n    <ul><a routerLink=\"/user/111/website/111/page/100/widget\">          WidgetListComponent               </a></ul>\n    <ul><a routerLink=\"/user/111/website/111/page/100/widget/new\">          WidgetChooserComponent               </a></ul>\n    <ul><a routerLink=\"/user/111/website/111/page/100/widget/123\">          WidgetEditComponentWithId              </a></ul>\n\n  </div>\n</router-outlet>\n"
+module.exports = "\n\n<ul appSortable (newIndexes)=\"reorderItems($event)\">\n  <li>One</li>\n  <li>Two</li>\n  <li>Three</li>\n  <li>Four</li>\n  <li>Five</li>\n</ul>\n\n<!--<p appHelloWorld>Hello World</p>-->\n\n<p appChangeBgColor [changeBgColor]=\"color\">Hello world</p>\n\n<p appHelloworld [bgColor]=\"color\">Hello World</p>\n\n\n\n<router-outlet>\n  <div class=\"container\">\n\n    <ul><a routerLink=\"/example/upload\">              upload-example               </a></ul>\n    <ul><a routerLink=\"/example/flickr\">              flickr-example               </a></ul>\n    <ul><a routerLink=\"/login\">                login               </a></ul>\n    <ul><a routerLink=\"/register\">             register             </a></ul>\n\n    <ul><a routerLink=\"/user/111/website\">          WebSiteList               </a></ul>\n    <ul><a routerLink=\"/user/111/website/new\">          WebsiteNewComponent               </a></ul>\n    <ul><a routerLink=\"/user/111/website/111\">          WebsiteComponentWithId              </a></ul>\n    <ul><a routerLink=\"/user/111/website/111/edit\">          WebSiteEdit               </a></ul>\n\n    <ul><a routerLink=\"/user/111/website/111/page\">          PageListComponent               </a></ul>\n    <ul><a routerLink=\"/user/111/website/111/page/new\">          PageNewComponent               </a></ul>\n    <ul><a routerLink=\"/user/111/website/111/page/100\">          PageEditComponent               </a></ul>\n\n    <ul><a routerLink=\"/user/111/website/111/page/100/widget\">          WidgetListComponent               </a></ul>\n    <ul><a routerLink=\"/user/111/website/111/page/100/widget/new\">          WidgetChooserComponent               </a></ul>\n    <ul><a routerLink=\"/user/111/website/111/page/100/widget/123\">          WidgetEditComponentWithId              </a></ul>\n\n  </div>\n</router-outlet>\n"
 
 /***/ }),
 
@@ -105,6 +105,9 @@ var AppComponent = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_29__services_page_service__ = __webpack_require__("./src/app/services/page.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_30__services_widget_service__ = __webpack_require__("./src/app/services/widget.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_31__services_shared_service__ = __webpack_require__("./src/app/services/shared.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_32__views_widget_widget_edit_widget_image_flickr_image_search_flickr_image_search_component__ = __webpack_require__("./src/app/views/widget/widget-edit/widget-image/flickr-image-search/flickr-image-search.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_33__services_flickr_service__ = __webpack_require__("./src/app/services/flickr.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_34__views_example_upload_upload_component__ = __webpack_require__("./src/app/views/example/upload/upload.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -147,6 +150,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
+
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -174,17 +180,19 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_28__views_widget_widget_edit_widget_edit_component__["a" /* WidgetEditComponent */],
                 __WEBPACK_IMPORTED_MODULE_5__views_widget_widget_list_safe_pipe_pipe__["a" /* SafePipe */],
                 __WEBPACK_IMPORTED_MODULE_7__views_widget_widget_list_sortable_directive__["a" /* SortableDirective */],
-                __WEBPACK_IMPORTED_MODULE_6__views_widget_widget_list_order_by_pipe_pipe__["a" /* OrderByPipe */]
+                __WEBPACK_IMPORTED_MODULE_6__views_widget_widget_list_order_by_pipe_pipe__["a" /* OrderByPipe */],
+                __WEBPACK_IMPORTED_MODULE_32__views_widget_widget_edit_widget_image_flickr_image_search_flickr_image_search_component__["a" /* FlickrImageSearchComponent */],
+                __WEBPACK_IMPORTED_MODULE_34__views_example_upload_upload_component__["a" /* UploadComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormsModule */],
-                __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClientModule */],
+                __WEBPACK_IMPORTED_MODULE_3__angular_common_http__["b" /* HttpClientModule */],
                 //QuillEditorModule,
                 __WEBPACK_IMPORTED_MODULE_4_ngx_quill__["a" /* QuillModule */],
                 __WEBPACK_IMPORTED_MODULE_8__app_routing__["a" /* routing */]
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_19__services_user_service__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_20__services_website_service__["a" /* WebsiteService */], __WEBPACK_IMPORTED_MODULE_29__services_page_service__["a" /* PageService */], __WEBPACK_IMPORTED_MODULE_30__services_widget_service__["a" /* WidgetService */], __WEBPACK_IMPORTED_MODULE_31__services_shared_service__["a" /* SharedService */]],
+            providers: [__WEBPACK_IMPORTED_MODULE_19__services_user_service__["a" /* UserService */], __WEBPACK_IMPORTED_MODULE_20__services_website_service__["a" /* WebsiteService */], __WEBPACK_IMPORTED_MODULE_29__services_page_service__["a" /* PageService */], __WEBPACK_IMPORTED_MODULE_30__services_widget_service__["a" /* WidgetService */], __WEBPACK_IMPORTED_MODULE_31__services_shared_service__["a" /* SharedService */], __WEBPACK_IMPORTED_MODULE_33__services_flickr_service__["a" /* FlickrService */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
@@ -208,6 +216,10 @@ var AppModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__views_website_website_new_website_new_component__ = __webpack_require__("./src/app/views/website/website-new/website-new.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__views_website_website_edit_website_edit_component__ = __webpack_require__("./src/app/views/website/website-edit/website-edit.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__views_page_page_list_page_list_component__ = __webpack_require__("./src/app/views/page/page-list/page-list.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__views_example_upload_upload_component__ = __webpack_require__("./src/app/views/example/upload/upload.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__views_widget_widget_edit_widget_image_flickr_image_search_flickr_image_search_component__ = __webpack_require__("./src/app/views/widget/widget-edit/widget-image/flickr-image-search/flickr-image-search.component.ts");
+
+
 
 
 
@@ -217,14 +229,15 @@ var AppModule = /** @class */ (function () {
 
 
 var appRoutes = [
-    { path: '', component: __WEBPACK_IMPORTED_MODULE_1__views_user_login_login_component__["a" /* LoginComponent */] },
+    { path: 'example/upload', component: __WEBPACK_IMPORTED_MODULE_8__views_example_upload_upload_component__["a" /* UploadComponent */] },
     { path: 'login', component: __WEBPACK_IMPORTED_MODULE_1__views_user_login_login_component__["a" /* LoginComponent */] },
     { path: 'user/:uid', component: __WEBPACK_IMPORTED_MODULE_2__views_user_profile_profile_component__["a" /* ProfileComponent */] },
     { path: 'register', component: __WEBPACK_IMPORTED_MODULE_3__views_user_register_register_component__["a" /* RegisterComponent */] },
     { path: 'user/:uid/website', component: __WEBPACK_IMPORTED_MODULE_4__views_website_website_list_website_list_component__["a" /* WebsiteListComponent */] },
     { path: 'user/:uid/website/new', component: __WEBPACK_IMPORTED_MODULE_5__views_website_website_new_website_new_component__["a" /* WebsiteNewComponent */] },
     { path: 'user/:uid/website/:wid', component: __WEBPACK_IMPORTED_MODULE_6__views_website_website_edit_website_edit_component__["a" /* WebsiteEditComponent */] },
-    { path: 'user/:uid/website/:websiteid/page', component: __WEBPACK_IMPORTED_MODULE_7__views_page_page_list_page_list_component__["a" /* PageListComponent */] }
+    { path: 'user/:uid/website/:websiteid/page', component: __WEBPACK_IMPORTED_MODULE_7__views_page_page_list_page_list_component__["a" /* PageListComponent */] },
+    { path: 'example/flickr', component: __WEBPACK_IMPORTED_MODULE_9__views_widget_widget_edit_widget_image_flickr_image_search_flickr_image_search_component__["a" /* FlickrImageSearchComponent */] }
 ];
 var routing = __WEBPACK_IMPORTED_MODULE_0__angular_router__["c" /* RouterModule */].forRoot(appRoutes);
 
@@ -329,15 +342,13 @@ var HelloworldDirective = /** @class */ (function () {
 
 /***/ }),
 
-/***/ "./src/app/services/page.service.ts":
+/***/ "./src/app/services/flickr.service.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PageService; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FlickrService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("./node_modules/@angular/http/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__ = __webpack_require__("./node_modules/rxjs/_esm5/Rx.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__("./src/environments/environment.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -349,56 +360,140 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+var FlickrService = /** @class */ (function () {
+    function FlickrService(_http) {
+        this._http = _http;
+        this.key = '90ea0df0685933f65ea96fab852a3023';
+        this.secret = '59b7fb7ceb0a467b';
+        this.urlBase = 'https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&api_key=API_KEY&text=TEXT';
+    }
+    FlickrService.prototype.searchPhotos = function (searchTerm) {
+        var url = this.urlBase
+            .replace('API_KEY', this.key)
+            .replace('TEXT', searchTerm);
+        return this._http.get(url);
+    };
+    FlickrService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])() // needed as we're injecting Http service into this service
+        ,
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]])
+    ], FlickrService);
+    return FlickrService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/services/page.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PageService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__("./node_modules/rxjs/_esm5/Rx.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__("./src/environments/environment.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+//import {Http, Response} from '@angular/http';
+
 
 
 var PageService = /** @class */ (function () {
+    /*constructor(private _http: Http) {
+    }
+  
+  
+    createPage(websiteId, page) {
+      var url = this.baseUrl + '/api/website/' + websiteId + '/page';
+      return this._http.post(url, page)
+        .map(
+          (res: Response) => {
+            const data = res.json();
+            return data;
+          }
+        );
+    }
+  
+    findPageByWebsiteId(websiteId){
+      var url = this.baseUrl + '/api/website/'+websiteId+'/page';
+      return this._http.get(url)
+        .map(
+          (res: Response) => {
+            const data = res.json();
+            return data;
+          }
+        );
+    }
+  
+    findPageById(pageId) {
+      var url = this.baseUrl + '/api/page/'+pageId;
+      return this._http.get(url)
+        .map(
+          (res: Response) => {
+            const data = res.json();
+            return data;
+          }
+        );
+    }
+  
+    updatePage(pageId, page){
+      var url = this.baseUrl + '/api/page/' +pageId;
+      return this._http.put(url,page)
+        .map(
+          (res: Response) => {
+            const data = res;
+            return data;
+          }
+        );
+    }
+  
+    deletePage(pageId){
+      var url = this.baseUrl + '/api/page/' +pageId;
+      return this._http.delete(url)
+        .map(
+          (res: Response) => {
+            const data = res;
+            return data;
+          }
+        );
+    }*/
     function PageService(_http) {
         this._http = _http;
-        this.baseUrl = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].baseUrl;
+        this.baseUrl = __WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment */].baseUrl;
     }
     PageService.prototype.createPage = function (websiteId, page) {
         var url = this.baseUrl + '/api/website/' + websiteId + '/page';
-        return this._http.post(url, page)
-            .map(function (res) {
-            var data = res.json();
-            return data;
-        });
+        return this._http.post(url, page);
     };
     PageService.prototype.findPageByWebsiteId = function (websiteId) {
         var url = this.baseUrl + '/api/website/' + websiteId + '/page';
-        return this._http.get(url)
-            .map(function (res) {
-            var data = res.json();
-            return data;
-        });
+        return this._http.get(url);
     };
     PageService.prototype.findPageById = function (pageId) {
         var url = this.baseUrl + '/api/page/' + pageId;
-        return this._http.get(url)
-            .map(function (res) {
-            var data = res.json();
-            return data;
-        });
+        return this._http.get(url);
     };
     PageService.prototype.updatePage = function (pageId, page) {
         var url = this.baseUrl + '/api/page/' + pageId;
-        return this._http.put(url, page)
-            .map(function (res) {
-            var data = res;
-            return data;
-        });
+        return this._http.put(url, page);
     };
     PageService.prototype.deletePage = function (pageId) {
         var url = this.baseUrl + '/api/page/' + pageId;
-        return this._http.delete(url)
-            .map(function (res) {
-            var data = res;
-            return data;
-        });
+        return this._http.delete(url);
     };
     PageService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */]])
     ], PageService);
     return PageService;
 }());
@@ -440,11 +535,11 @@ var SharedService = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UserService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("./node_modules/@angular/http/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__ = __webpack_require__("./node_modules/rxjs/_esm5/Rx.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__("./src/environments/environment.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__shared_service__ = __webpack_require__("./src/app/services/shared.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__("./node_modules/rxjs/_esm5/Rx.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__("./src/environments/environment.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__shared_service__ = __webpack_require__("./src/app/services/shared.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -462,76 +557,136 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 // injecting service into module
 var UserService = /** @class */ (function () {
+    /* constructor(private _http: Http, private router: Router, private sharedService: SharedService) {}
+   
+     baseUrl = environment.baseUrl;
+   
+     options = new RequestOptions();
+   
+     loggedIn() {
+       this.options.withCredentials = true;
+       return this._http.post(this.baseUrl + '/api/loggedIn', '', this.options)
+         .map(
+           (res: Response) => {
+             const user = res.json();
+             if (user !== '0') {
+               this.sharedService.user = user; // setting user as global variable using shared service
+               return true;
+             } else {
+               this.router.navigate(['/login']);
+               return false;
+             }
+           }
+         );
+     }
+   
+     logout() {
+       this.options.withCredentials = true;
+       return this._http.post(this.baseUrl + '/api/logout', '', this.options)
+         .map(
+           (res: Response) => {
+             const data = res;
+           }
+         );
+     }
+   
+     findUserById(userId: String) {
+       return this._http.get(this.baseUrl + '/api/user/' + userId)
+         .map(
+           (res: Response) => {
+             const data = res.json();
+             return data;
+           }
+         );
+     }
+   
+     register(username: String, password: String) {
+   
+       this.options.withCredentials = true;
+       const body = {
+         username : username,
+         password : password
+       };
+   
+       return this._http.post(this.baseUrl + '/api/register', body, this.options)
+         .map(
+           (res: Response) => {
+             const data = res.json();
+             return data;
+           }
+         );
+     }
+   
+     login(username: String, password: String) {
+   
+       this.options.withCredentials = true;
+   
+       const body = {
+         username : username,
+         password : password
+       };
+       return this._http.post(this.baseUrl + '/api/login', body, this.options)
+         .map(
+           (res: Response) => {
+             const data = res.json();
+             return data;
+           }
+         );
+     }
+   
+     updateUser(user: any) {
+       return this._http.put(this.baseUrl + '/api/user/' + user._id, user)
+         .map(
+           (res: Response) => {
+             return 'Updated';
+           }
+         );
+   
+     }*/
     function UserService(_http, router, sharedService) {
         this._http = _http;
         this.router = router;
         this.sharedService = sharedService;
-        this.baseUrl = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].baseUrl;
-        this.options = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* RequestOptions */]();
+        this.baseUrl = __WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment */].baseUrl;
     }
+    //options = new RequestOptions();
     UserService.prototype.loggedIn = function () {
-        var _this = this;
-        this.options.withCredentials = true;
-        return this._http.post(this.baseUrl + '/api/loggedIn', '', this.options)
-            .map(function (res) {
-            var user = res.json();
-            if (user !== '0') {
-                _this.sharedService.user = user; // setting user as global variable using shared service
-                return true;
-            }
-            else {
-                _this.router.navigate(['/login']);
-                return false;
-            }
-        });
+        //this.options.withCredentials = true;
+        return this._http.post(this.baseUrl + '/api/loggedIn', '');
     };
     UserService.prototype.logout = function () {
-        this.options.withCredentials = true;
-        return this._http.post(this.baseUrl + '/api/logout', '', this.options)
-            .map(function (res) {
-            var data = res;
-        });
+        //this.options.withCredentials = true;
+        return this._http.post(this.baseUrl + '/api/logout', '');
     };
     UserService.prototype.findUserById = function (userId) {
-        return this._http.get(this.baseUrl + '/api/user/' + userId)
-            .map(function (res) {
-            var data = res.json();
-            return data;
-        });
+        return this._http.get(this.baseUrl + '/api/user/' + userId);
     };
     UserService.prototype.register = function (username, password) {
-        this.options.withCredentials = true;
+        //this.options.withCredentials = true;
         var body = {
             username: username,
             password: password
         };
-        return this._http.post(this.baseUrl + '/api/register', body, this.options)
-            .map(function (res) {
-            var data = res.json();
-            return data;
-        });
+        return this._http.post(this.baseUrl + '/api/user', body);
     };
     UserService.prototype.login = function (username, password) {
-        this.options.withCredentials = true;
+        //this.options.withCredentials = true;
         var body = {
             username: username,
             password: password
         };
-        return this._http.post(this.baseUrl + '/api/login', body, this.options)
-            .map(function (res) {
-            var data = res.json();
-            return data;
-        });
+        return this._http.post(this.baseUrl + '/api/login', body);
     };
     UserService.prototype.updateUser = function (user) {
-        return this._http.put(this.baseUrl + '/api/user/' + user._id, user)
-            .map(function (res) {
-            return 'Updated';
-        });
+        return this._http.put(this.baseUrl + '/api/user/' + user._id, user);
+    };
+    UserService.prototype.findUserByCredential = function (username, password) {
+        var url = this.baseUrl + '/api/user?username=' + username + '&password=' + password;
+        return this._http.get(url);
     };
     UserService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */], __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_5__shared_service__["a" /* SharedService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_4__shared_service__["a" /* SharedService */]])
     ], UserService);
     return UserService;
 }());
@@ -546,9 +701,9 @@ var UserService = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WebsiteService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("./node_modules/@angular/http/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__ = __webpack_require__("./node_modules/rxjs/_esm5/Rx.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__environments_environment__ = __webpack_require__("./src/environments/environment.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__ = __webpack_require__("./node_modules/rxjs/_esm5/Rx.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__("./src/environments/environment.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -564,23 +719,81 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 // injecting service into module
 var WebsiteService = /** @class */ (function () {
+    /*constructor(private _http : Http){
+  
+    }
+  
+    findWebsiteById(websiteId : String){
+      return this._http.get(this.baseUrl+ '/api/website/'+websiteId)
+        .map(
+          (res: Response) => {
+            const data = res.json();
+            return data;
+          }
+        );
+    }
+  
+  
+    findWebsitesByUser(userId : String){
+      return this._http.get(this.baseUrl+ '/api/user/'+userId+'/website')
+        .map(
+          (res: Response) => {
+            const data = res.json();
+  
+            return data;
+          }
+        );
+    }
+  
+    createWebsite(userId, website){
+      var body = {
+        name : website.name,
+        description : website.description,
+        developerId : userId
+      };
+      var url = this.baseUrl+ '/api/user/'+userId+'/website';
+      return this._http.post(url, body)
+        .map(
+          (res: Response) => {
+            const data = res.json();
+  
+            return data;
+          }
+        );
+  
+    }
+  
+    updateWebsite(websiteId, website){
+      var url = this.baseUrl + '/api/website/' + websiteId;
+      var body = website;
+      return this._http.put(url, body)
+        .map(
+          (res: Response) => {
+            const data = res;
+            return data;
+          }
+        );
+    }
+  
+    deleteWebsite(websiteId){
+      var url = this.baseUrl + '/api/website/' + websiteId;
+      return this._http.delete(url)
+        .map(
+          (res: Response) => {
+            const data = res;
+            return data;
+          }
+        );
+    }*/
     function WebsiteService(_http) {
         this._http = _http;
-        this.baseUrl = __WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].baseUrl;
+        this.baseUrl = __WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment */].baseUrl;
     }
     WebsiteService.prototype.findWebsiteById = function (websiteId) {
-        return this._http.get(this.baseUrl + '/api/website/' + websiteId)
-            .map(function (res) {
-            var data = res.json();
-            return data;
-        });
+        return this._http.get(this.baseUrl + '/api/website/' + websiteId);
     };
     WebsiteService.prototype.findWebsitesByUser = function (userId) {
-        return this._http.get(this.baseUrl + '/api/user/' + userId + '/website')
-            .map(function (res) {
-            var data = res.json();
-            return data;
-        });
+        return this._http.get(this.baseUrl + '/api/user/' + userId + '/website');
     };
     WebsiteService.prototype.createWebsite = function (userId, website) {
         var body = {
@@ -589,32 +802,20 @@ var WebsiteService = /** @class */ (function () {
             developerId: userId
         };
         var url = this.baseUrl + '/api/user/' + userId + '/website';
-        return this._http.post(url, body)
-            .map(function (res) {
-            var data = res.json();
-            return data;
-        });
+        return this._http.post(url, body);
     };
     WebsiteService.prototype.updateWebsite = function (websiteId, website) {
         var url = this.baseUrl + '/api/website/' + websiteId;
         var body = website;
-        return this._http.put(url, body)
-            .map(function (res) {
-            var data = res;
-            return data;
-        });
+        return this._http.put(url, body);
     };
     WebsiteService.prototype.deleteWebsite = function (websiteId) {
         var url = this.baseUrl + '/api/website/' + websiteId;
-        return this._http.delete(url)
-            .map(function (res) {
-            var data = res;
-            return data;
-        });
+        return this._http.delete(url);
     };
     WebsiteService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */]])
     ], WebsiteService);
     return WebsiteService;
 }());
@@ -629,9 +830,9 @@ var WebsiteService = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return WidgetService; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("./node_modules/@angular/http/esm5/http.js");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__environments_environment__ = __webpack_require__("./src/environments/environment.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Rx__ = __webpack_require__("./node_modules/rxjs/_esm5/Rx.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__environments_environment__ = __webpack_require__("./src/environments/environment.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Rx__ = __webpack_require__("./node_modules/rxjs/_esm5/Rx.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common_http__ = __webpack_require__("./node_modules/@angular/common/esm5/http.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -646,63 +847,154 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var WidgetService = /** @class */ (function () {
+    //constructor(private _http: Http) {}
     function WidgetService(_http) {
         this._http = _http;
-        this.baseUrl = __WEBPACK_IMPORTED_MODULE_2__environments_environment__["a" /* environment */].baseUrl;
+        this.baseUrl = __WEBPACK_IMPORTED_MODULE_1__environments_environment__["a" /* environment */].baseUrl;
     }
+    /*createWidget(pageId, widget){
+      const url = this.baseUrl+'/api/page/'+pageId+'/widget';
+      return this._http.post(url, widget)
+        .map(
+          (res: Response) => {
+            const data = res.json();
+            return data;
+          });
+    }*/
     WidgetService.prototype.createWidget = function (pageId, widget) {
         var url = this.baseUrl + '/api/page/' + pageId + '/widget';
-        return this._http.post(url, widget)
-            .map(function (res) {
-            var data = res.json();
-            return data;
-        });
+        return this._http.post(url, widget);
     };
+    /*findWidgetsByPageId(pageId) {
+      const url = this.baseUrl+'/api/page/'+pageId+'/widget';
+      return this._http.get(url)
+        .map(
+          (res: Response) => {
+            const data = res.json();
+            return data;
+          }
+        );
+    }*/
     WidgetService.prototype.findWidgetsByPageId = function (pageId) {
         var url = this.baseUrl + '/api/page/' + pageId + '/widget';
-        return this._http.get(url)
-            .map(function (res) {
-            var data = res.json();
-            return data;
-        });
+        return this._http.get(url);
     };
+    /*findWidgetById(widgetId) {
+      const url = this.baseUrl+'/api/widget/'+widgetId;
+      return this._http.get(url)
+        .map(
+          (res: Response) => {
+            const data = res.json();
+            return data;
+          }
+        );
+    }*/
     WidgetService.prototype.findWidgetById = function (widgetId) {
         var url = this.baseUrl + '/api/widget/' + widgetId;
-        return this._http.get(url)
-            .map(function (res) {
-            var data = res.json();
-            return data;
-        });
+        return this._http.get(url);
     };
+    /*updateWidget(widgetId, widget) {
+      const url = this.baseUrl+'/api/widget/'+widgetId;
+      return this._http.put(url, widget)
+        .map(
+          (res: Response) => {
+            const data = res;
+            return data;
+          }
+        );
+    }*/
     WidgetService.prototype.updateWidget = function (widgetId, widget) {
         var url = this.baseUrl + '/api/widget/' + widgetId;
-        return this._http.put(url, widget)
-            .map(function (res) {
-            var data = res;
-            return data;
-        });
+        return this._http.put(url, widget);
     };
+    /*deleteWidget(widgetId) {
+      const url = this.baseUrl+'/api/widget/'+widgetId;
+      return this._http.delete(url)
+        .map(
+          (res: Response) => {
+            const data = res;
+            return data;
+          }
+        );
+    }*/
     WidgetService.prototype.deleteWidget = function (widgetId) {
         var url = this.baseUrl + '/api/widget/' + widgetId;
-        return this._http.delete(url)
-            .map(function (res) {
-            var data = res;
-            return data;
-        });
+        return this._http.delete(url);
     };
+    /*reorderWidgets(startIndex, endIndex, pageId) {
+  
+      const url = this.baseUrl + '/api/page/' + pageId + '/widget?start=' + startIndex + '&end=' + endIndex;
+      return this._http.put(url, '')
+        .map(
+          (res: Response) => {
+            const data = res;
+            return data;
+          }
+        );
+    }*/
     WidgetService.prototype.reorderWidgets = function (startIndex, endIndex, pageId) {
         var url = this.baseUrl + '/api/page/' + pageId + '/widget?start=' + startIndex + '&end=' + endIndex;
-        return this._http.put(url, '')
-            .map(function (res) {
-            var data = res;
-            return data;
-        });
+        return this._http.put(url, '');
     };
     WidgetService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__angular_common_http__["a" /* HttpClient */]])
     ], WidgetService);
     return WidgetService;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/views/example/upload/upload.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/views/example/upload/upload.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<p>Test upload</p>\n<form ngNoForm action=\"{{baseUrl}}/api/upload\" method=\"post\" enctype=\"multipart/form-data\">\n\n  <input  name=\"myFile\"   type=\"file\" class=\"form-control\"/>\n  <button type=\"submit\" class=\"btn btn-block btn-primary\">Upload Image</button>\n  <br/>\n\n</form>\n"
+
+/***/ }),
+
+/***/ "./src/app/views/example/upload/upload.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UploadComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__environments_environment__ = __webpack_require__("./src/environments/environment.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var UploadComponent = /** @class */ (function () {
+    function UploadComponent() {
+    }
+    UploadComponent.prototype.ngOnInit = function () {
+        // fetching baseUrl to server
+        this.baseUrl = __WEBPACK_IMPORTED_MODULE_1__environments_environment__["a" /* environment */].baseUrl;
+    };
+    UploadComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-upload',
+            template: __webpack_require__("./src/app/views/example/upload/upload.component.html"),
+            styles: [__webpack_require__("./src/app/views/example/upload/upload.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], UploadComponent);
+    return UploadComponent;
 }());
 
 
@@ -800,7 +1092,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var LoginComponent = /** @class */ (function () {
-    // TODO : fix authentication using pasport
     function LoginComponent(router, _userService, sharedService) {
         this.router = router;
         this._userService = _userService;
@@ -813,15 +1104,15 @@ var LoginComponent = /** @class */ (function () {
         // fetching data from loginForm
         this.username = this.loginForm.value.username;
         this.password = this.loginForm.value.password;
-        // calling client side userservice to send login information
-        console.log('data', this.username);
-        this._userService.login(this.username, this.password)
-            .subscribe(function (data) {
-            _this.sharedService.user = data;
-            _this.errorFlag = false;
-            _this.router.navigate(['/profile']);
-        }, function (error) {
-            _this.errorFlag = true;
+        this._userService.findUserByCredential(this.username, this.password)
+            .subscribe(function (user) {
+            if (user) {
+                console.log(user);
+                _this.router.navigate(['/user', user._id]);
+            }
+            else {
+                _this.errorFlag = true;
+            }
         });
     };
     __decorate([
@@ -916,22 +1207,21 @@ var ProfileComponent = /** @class */ (function () {
         };
         this._UserService.updateUser(updatedUser)
             .subscribe(function (data) {
-            _this._UserService.findUserById(updatedUser._id)
-                .subscribe(function (data) {
-                localStorage.setItem('user', JSON.stringify(data));
-                _this.ngOnInit();
-            });
+            _this.user = data;
         }, function (error) { return _this.errorFlag = true; });
-        // .toPromise()
-        // .then( data => {
-        //   this._UserService.findUserById(updatedUser._id)
-        //     .toPromise()
-        //     .then( data => {
-        //       localStorage.setItem('user', JSON.stringify(data));
-        //
-        //       this.ngOnInit();
-        //     })
-        // })
+        /*this._UserService.updateUser(updatedUser)
+          .subscribe(
+            (data: any) => {
+              this._UserService.findUserById(updatedUser._id)
+                .subscribe(
+                  (data: any) => {
+                    localStorage.setItem('user', JSON.stringify(data));
+                    this.ngOnInit();
+                  }
+                );
+            },
+            (error: any) => this.errorFlag = true
+          );*/
     };
     ProfileComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -1430,6 +1720,113 @@ var WidgetHtmlComponent = /** @class */ (function () {
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_2__services_widget_service__["a" /* WidgetService */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]])
     ], WidgetHtmlComponent);
     return WidgetHtmlComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "./src/app/views/widget/widget-edit/widget-image/flickr-image-search/flickr-image-search.component.css":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "./src/app/views/widget/widget-edit/widget-image/flickr-image-search/flickr-image-search.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "\n<!--Header-->\n<nav class=\"navbar navbar-default navbar-fixed-top\">\n  <div class=\"container-fluid\">\n    <!--Left arrow-->\n    <p class=\"navbar-text pull-left\">\n      <a [routerLink]=\"['/user', 'website', websiteId, 'page', pageId, 'widget', widgetId]\" class=\"navbar-link\">\n        <span class=\"glyphicon glyphicon-chevron-left\"></span>\n      </a>\n    </p>\n    <span>\n        <!--heading on the nav bar-->\n        <p class=\"navbar-header pull-left\">\n            <a class=\"navbar-brand thick\">\n                <b>Search Flickr</b>\n            </a>\n        </p>\n        </span>\n  </div>\n</nav>\n\n<!--!!Material on the page!!-->\n<div class = \"container\">\n  <div class=\"input-group\">\n    <input [(ngModel)]=\"searchText\" type=\"text\" class=\"form-control\">\n    <span class=\"input-group-btn\">\n            <a (click)=\"searchPhotos()\" class=\"btn btn-default\" type=\"button\">\n                <span class=\"glyphicon glyphicon-search\"></span>\n            </a>\n        </span>\n  </div>\n\n  <div class=\"row\">\n    <!--<div *ngFor = \"let pic of photos['photo']\"-->\n    <div *ngFor = \"let pic of photos\"\n         class=\"col-xs-4\">\n      <img    (click)=\"selectPhoto(pic)\"\n              width=\"100%\"\n              [src] = \"['https://farm' + pic.farm + '.staticflickr.com/' + pic.server + '/' + pic.id + '_' + pic.secret + '_s.jpg']\"/>\n\n      <!--[src] = \"https://farm\" + photo.farm + \".staticflickr.com/\" + photo.server + \"/\" + photo.id + \"_\" + photo.secret + \"_\" + \"s.jpg\"/>-->\n      <p></p>\n    </div>\n  </div>\n\n</div>\n<!-- Footer -->\n\n<nav class=\"navbar navbar-default navbar-fixed-bottom\">\n  <div class=\"container-fluid\">\n    <!--Play Symbol-->\n    <!--User Symbol-->\n    <p class=\"navbar-text pull-right\">\n      <a [routerLink]=\"['/profile']\">\n        <span class=\"glyphicon glyphicon-user\"></span>\n      </a>\n    </p>\n\n  </div>\n</nav>\n"
+
+/***/ }),
+
+/***/ "./src/app/views/widget/widget-edit/widget-image/flickr-image-search/flickr-image-search.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FlickrImageSearchComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__services_flickr_service__ = __webpack_require__("./src/app/services/flickr.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__services_widget_service__ = __webpack_require__("./src/app/services/widget.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("./node_modules/@angular/router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__services_shared_service__ = __webpack_require__("./src/app/services/shared.service.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var FlickrImageSearchComponent = /** @class */ (function () {
+    function FlickrImageSearchComponent(flickrService, widgetService, router, activatedRoute, sharedService) {
+        this.flickrService = flickrService;
+        this.widgetService = widgetService;
+        this.router = router;
+        this.activatedRoute = activatedRoute;
+        this.sharedService = sharedService;
+    }
+    FlickrImageSearchComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        // fetch userId from shared service
+        this.userId = this.sharedService.user['_id'];
+        // fetch userId, pageId and websiteId from url
+        this.activatedRoute.params
+            .subscribe(function (params) {
+            _this.websiteId = params['websiteId'];
+            _this.pageId = params['pageId'];
+            _this.widgetId = params['widgetId'];
+        });
+    };
+    FlickrImageSearchComponent.prototype.searchPhotos = function () {
+        var _this = this;
+        this.flickrService
+            .searchPhotos(this.searchText)
+            .subscribe(function (data) {
+            var val = data._body;
+            val = val.replace('jsonFlickrApi(', '');
+            val = val.substring(0, val.length - 1);
+            val = JSON.parse(val);
+            _this.photos = val.photos;
+        });
+    };
+    FlickrImageSearchComponent.prototype.selectPhoto = function (photo) {
+        var _this = this;
+        var url = 'https://farm' + photo.farm + '.staticflickr.com/' + photo.server;
+        url += '/' + photo.id + '_' + photo.secret + '_b.jpg';
+        console.log("flickr: " + url);
+        var widget = {
+            websiteId: this.websiteId,
+            pageId: this.pageId,
+            url: url
+        };
+        this.widgetService
+            .updateWidget(this.widgetId, widget)
+            .subscribe(function (data) {
+            var result = data;
+            if (result) {
+                _this.router.navigate(['/user/' + '/website/' + _this.websiteId + '/page/' + _this.pageId + '/widget/' + _this.widgetId]);
+            }
+            else {
+                _this.error = 'failed!';
+            }
+        });
+    };
+    FlickrImageSearchComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-flickr-image-search',
+            template: __webpack_require__("./src/app/views/widget/widget-edit/widget-image/flickr-image-search/flickr-image-search.component.html"),
+            styles: [__webpack_require__("./src/app/views/widget/widget-edit/widget-image/flickr-image-search/flickr-image-search.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_flickr_service__["a" /* FlickrService */], __WEBPACK_IMPORTED_MODULE_2__services_widget_service__["a" /* WidgetService */], __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_4__services_shared_service__["a" /* SharedService */]])
+    ], FlickrImageSearchComponent);
+    return FlickrImageSearchComponent;
 }());
 
 

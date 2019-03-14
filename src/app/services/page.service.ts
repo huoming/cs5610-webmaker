@@ -1,15 +1,17 @@
 
 import {Injectable} from "@angular/core";
-import {Http, Response} from '@angular/http';
+//import {Http, Response} from '@angular/http';
 import 'rxjs/Rx';
 import {environment} from '../../environments/environment';
+
+import {HttpClient} from '@angular/common/http';
 @Injectable()
 
 export class PageService {
 
   baseUrl = environment.baseUrl;
 
-  constructor(private _http: Http) {
+  /*constructor(private _http: Http) {
   }
 
 
@@ -66,6 +68,35 @@ export class PageService {
           return data;
         }
       );
+  }*/
+
+  constructor(private _http: HttpClient) {
+  }
+
+
+  createPage(websiteId, page) {
+    var url = this.baseUrl + '/api/website/' + websiteId + '/page';
+    return this._http.post(url, page);
+  }
+
+  findPageByWebsiteId(websiteId){
+    var url = this.baseUrl + '/api/website/'+websiteId+'/page';
+    return this._http.get(url);
+  }
+
+  findPageById(pageId) {
+    var url = this.baseUrl + '/api/page/'+pageId;
+    return this._http.get(url);
+  }
+
+  updatePage(pageId, page){
+    var url = this.baseUrl + '/api/page/' +pageId;
+    return this._http.put(url,page);
+  }
+
+  deletePage(pageId){
+    var url = this.baseUrl + '/api/page/' +pageId;
+    return this._http.delete(url);
   }
 
 }

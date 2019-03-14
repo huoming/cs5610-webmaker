@@ -40,6 +40,9 @@ import { WidgetEditComponent } from './views/widget/widget-edit/widget-edit.comp
 import {PageService} from './services/page.service';
 import {WidgetService} from './services/widget.service';
 import {SharedService} from './services/shared.service';
+import { FlickrImageSearchComponent } from './views/widget/widget-edit/widget-image/flickr-image-search/flickr-image-search.component';
+import {FlickrService} from './services/flickr.service';
+import { UploadComponent } from './views/example/upload/upload.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +67,9 @@ import {SharedService} from './services/shared.service';
     WidgetEditComponent,
     SafePipe,
     SortableDirective,
-    OrderByPipe
+    OrderByPipe,
+    FlickrImageSearchComponent,
+    UploadComponent
   ],
   imports: [
     BrowserModule,
@@ -74,7 +79,7 @@ import {SharedService} from './services/shared.service';
     QuillModule,
     routing
   ],
-  providers: [UserService, WebsiteService, PageService, WidgetService, SharedService],
+  providers: [UserService, WebsiteService, PageService, WidgetService, SharedService, FlickrService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

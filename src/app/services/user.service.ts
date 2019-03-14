@@ -5,12 +5,13 @@ import 'rxjs/Rx';
 import {environment} from '../../environments/environment';
 import {Router} from '@angular/router';
 import {SharedService} from './shared.service';
+import {HttpClient} from '@angular/common/http';
 // injecting service into module
 @Injectable()
 
 export class UserService {
 
-  constructor(private _http: Http, private router: Router, private sharedService: SharedService) {}
+ /* constructor(private _http: Http, private router: Router, private sharedService: SharedService) {}
 
   baseUrl = environment.baseUrl;
 
@@ -95,6 +96,56 @@ export class UserService {
         }
       );
 
+  }*/
+
+  constructor(private _http: HttpClient, private router: Router, private sharedService: SharedService) {}
+
+  baseUrl = environment.baseUrl;
+
+  //options = new RequestOptions();
+
+  loggedIn() {
+    //this.options.withCredentials = true;
+    return this._http.post(this.baseUrl + '/api/loggedIn', '');
   }
 
+  logout() {
+    //this.options.withCredentials = true;
+    return this._http.post(this.baseUrl + '/api/logout', '');
+  }
+
+  findUserById(userId: String) {
+    return this._http.get(this.baseUrl + '/api/user/' + userId);
+  }
+
+  register(username: String, password: String) {
+
+    //this.options.withCredentials = true;
+    const body = {
+      username : username,
+      password : password
+    };
+
+    return this._http.post(this.baseUrl + '/api/user', body);
+  }
+
+  login(username: String, password: String) {
+
+    //this.options.withCredentials = true;
+
+    const body = {
+      username : username,
+      password : password
+    };
+    return this._http.post(this.baseUrl + '/api/login', body);
+  }
+
+  updateUser(user: any) {
+    return this._http.put(this.baseUrl + '/api/user/' + user._id, user);
+  }
+
+  findUserByCredential(username: String, password: String) {
+    const url = this.baseUrl + '/api/user?username=' + username + '&password=' + password;
+    return this._http.get(url);
+  }
 }

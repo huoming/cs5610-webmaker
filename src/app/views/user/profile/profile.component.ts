@@ -57,8 +57,15 @@ export class ProfileComponent implements OnInit {
 
     };
 
-
     this._UserService.updateUser(updatedUser)
+      .subscribe(
+        (data: any) => {
+          this.user = data;
+        },
+        (error: any) => this.errorFlag = true
+      );
+
+    /*this._UserService.updateUser(updatedUser)
       .subscribe(
         (data: any) => {
           this._UserService.findUserById(updatedUser._id)
@@ -67,20 +74,10 @@ export class ProfileComponent implements OnInit {
                 localStorage.setItem('user', JSON.stringify(data));
                 this.ngOnInit();
               }
-            )
+            );
         },
         (error: any) => this.errorFlag = true
-      );
-    // .toPromise()
-    // .then( data => {
-    //   this._UserService.findUserById(updatedUser._id)
-    //     .toPromise()
-    //     .then( data => {
-    //       localStorage.setItem('user', JSON.stringify(data));
-    //
-    //       this.ngOnInit();
-    //     })
-    // })
+      );*/
   }
 
 }
