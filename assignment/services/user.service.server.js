@@ -14,6 +14,8 @@ module.exports = function (app) {
     {_id: "456", username: "jannunzi", password: "jannunzi", firstName: "Jose",   lastName: "Annunzi" }
   ];
 
+  var userModel = require('../model/user/user.model.server');
+
   function helloUser(req, res) {
     res.send("Hello from user service!");
   }
@@ -62,7 +64,7 @@ module.exports = function (app) {
     res.status(404).send("not found!");
   }
 
-  function createUser(req, res) {
+  /*function createUser(req, res) {
     var user = req.body;
     for (var i = 0; i < users.length; i++) {
       if (users[i].username === user["username"]) {
@@ -74,7 +76,23 @@ module.exports = function (app) {
     user._id = Math.random().toString();
     users.push(user);
     res.json(user);
-  };
+  }*/
 
+  function createUser(req, res) {
+    var user = req.body;
+    userModel
+      .createUser(user)
+      .then(
+        function (user) {
+          console.log("user created!");
+          res.json(user);
+        },
+        function (error) {
+          if (error) {console.log(error);
+            res.statusCode(400).send(error);
+          }
+        }
+      )
+  }
 
 }

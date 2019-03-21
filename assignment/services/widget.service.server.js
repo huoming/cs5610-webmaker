@@ -84,20 +84,8 @@ module.exports= function(app, models){
     //res.redirect("http://localhost:3200/user/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId);
   }
 
-  function array_swap(arr, old_index, new_index) {
-    while (old_index < 0) {
-      old_index += arr.length;
-    }
-    while (new_index < 0) {
-      new_index += arr.length;
-    }
-    if (new_index >= arr.length) {
-      var k = new_index - arr.length + 1;
-      while (k--) {
-        arr.push(undefined);
-      }
-    }
-    arr.splice(new_index, 0, arr.splice(old_index, 1)[0]);
+  function array_swap(arr, startIndex, endIndex) {
+    arr.splice(endIndex, 0, arr.splice(startIndex, 1));
   };
 
   function reorderWidgets(req,res) {
