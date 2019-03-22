@@ -80,7 +80,7 @@ module.exports= function(app, models){
           res.sendStatus(404).send(err);
         });*/
 
-    res.redirect("https://yourheroku.herokuapp.com/user/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId);
+    //res.redirect("https://yourheroku.herokuapp.com/user/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId);
     //res.redirect("http://localhost:3200/user/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId);
   }
 

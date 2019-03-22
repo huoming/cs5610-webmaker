@@ -3,7 +3,6 @@ var userSchema = require('./user.schema.server');
 
 var userModel = mongoose.model("User",userSchema);
 
-
 userModel.createUser = createUser;
 userModel.findUserById = findUserById;
 userModel.findUserByUserName = findUserByUserName;
@@ -11,16 +10,16 @@ userModel.findByCredential = findByCredential;
 userModel.updateUser = updateUser;
 userModel.deleteUser = deleteUser;
 
+//helper function
+userModel.populateUsers = populateUsers;
+
 module.exports = userModel;
 
+function populateUsers(users) {
+  return userModel.insertMany(users);
+}
 
-/*function createUser(user) {
-  return userModel.create(user, function (err, userSchema) {
-    if(err){return handleError(err);}
-  });
-}*/
 function createUser(user) {
-  console.log("model"+user);
   return userModel.create(user);
 }
 
