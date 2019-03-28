@@ -59,49 +59,62 @@ module.exports = function (app) {
 
   function findUserById(req, res) {
     var userId = req.params["userId"];
-    userModel.findUserById(userId).
-    exec(
-      function (err,user) {
-        if(err){
-          return res.sendStatus(400).send(err);
+    userModel
+      .findUserById(userId)
+      .exec(
+        function (err,user) {
+          if(err){
+            return res.sendStatus(400).send(err);
+          }
+          return  res.json(user);
         }
-        return  res.json(user);
-      }
     );
   }
 
   function findAllUsers(req, res){
     //res.json(users);
-    userModel.find().
-    exec(
-      function (err,users) {
-        if(err){
-          return res.sendStatus(400).send(err);
+    userModel
+      .find()
+      .exec(
+        function (err,users) {
+          if(err){
+            return res.sendStatus(400).send(err);
+          }
+          return  res.json(users);
         }
-        return  res.json(users);
-      }
-    );
+      );
   }
 
   function findUsers(req, res){
     var username = req.query["username"];
     var password = req.query["password"];
 
-    var user = null;
+    /*var user = null;
 
     if (username && password){
       user = users.find(function (user) {
         return user.username === username && user.password === password;
       });
     }
-    res.json(user);
+    res.json(user);*/
+
+    userModel
+      .findByCredential(username,password)
+      .exec(
+      function (err,user) {
+        if(err){
+          return res.sendStatus(400).send(err);
+        }
+        return res.json(user);
+      }
+    );
   }
 
   function updateUserById(req, res){
     var userId = req.params['userId'];
     var user = req.body;
 
-    console.log(req.body);
+    /*console.log(req.body);
     console.log("update user: " + userId + " " + user.firstName + " " + user.lastName);
 
     for(var i = 0; i < users.length; i++) {
@@ -113,7 +126,18 @@ module.exports = function (app) {
         return;
       }
     }
-    res.status(404).send("not found!");
+    res.status(404).send("not found!");*/
+
+    userModel
+      .updateUser(userId,user)
+      .then(
+        function (user) {
+          res.json(user);
+        },
+        function (err) {
+          res.statusCode(400).send(err);
+        }
+    );
   }
 
   /*function createUser(req, res) {

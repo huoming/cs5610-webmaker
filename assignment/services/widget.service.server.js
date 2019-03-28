@@ -70,18 +70,6 @@ module.exports= function(app, models){
     }
     widget.url = 'uploads/' + filename;
 
-    /*widgetModel
-      .updateWidget(widgetId, widget)
-      .then(function (stats) {
-          console.log(stats);
-          res.send(200);
-        },
-        function (err) {
-          res.sendStatus(404).send(err);
-        });*/
-
-    //res.redirect("https://yourheroku.herokuapp.com/user/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId);
-    //res.redirect("http://localhost:3200/user/website/"+websiteId+"/page/"+pageId+"/widget/"+widgetId);
   }
 
   function array_swap(arr, startIndex, endIndex) {
@@ -112,9 +100,9 @@ module.exports= function(app, models){
 
 
   function createWidget (req,res) {
-    /*var pageId = req.params.pageId;
-    var widget = req.body;
 
+    var pageId = req.params.pageId;
+    var widget = req.body;
 
     widgetModel
       .createWidget(pageId, widget)
@@ -123,11 +111,7 @@ module.exports= function(app, models){
 
       }, function (err) {
         res.sendStatus(400).send(err);
-      });*/
-
-    // widgets.push(widget);
-    // /* return true only if the JSON object is inserted */
-    // res.send(200);
+      });
   }
 
 
